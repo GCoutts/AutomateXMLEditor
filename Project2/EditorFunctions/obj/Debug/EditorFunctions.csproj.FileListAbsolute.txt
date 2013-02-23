@@ -1,0 +1,12 @@
+C:\Users\Graham\Desktop\Deployment\Project2\EditorFunctions\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Graham\Desktop\Deployment\Project2\EditorFunctions\bin\Debug\EditorFunctions.dll
+C:\Users\Graham\Desktop\Deployment\Project2\EditorFunctions\bin\Debug\EditorFunctions.pdb
+C:\Users\Graham\Desktop\Deployment\Project2\EditorFunctions\obj\Debug\EditorFunctions.dll
+C:\Users\Graham\Desktop\Deployment\Project2\EditorFunctions\obj\Debug\EditorFunctions.pdb
+C:\Users\Graham\Desktop\Deployment\Project2\EditorFunctions\bin\Debug\EditorFunctions.XML
+C:\Users\Graham\Documents\GitHub\AutomateXMLEditor\Project2\EditorFunctions\bin\Debug\EditorFunctions.XML
+C:\Users\Graham\Documents\GitHub\AutomateXMLEditor\Project2\EditorFunctions\bin\Debug\EditorFunctions.dll
+C:\Users\Graham\Documents\GitHub\AutomateXMLEditor\Project2\EditorFunctions\bin\Debug\EditorFunctions.pdb
+C:\Users\Graham\Documents\GitHub\AutomateXMLEditor\Project2\EditorFunctions\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Graham\Documents\GitHub\AutomateXMLEditor\Project2\EditorFunctions\obj\Debug\EditorFunctions.dll
+C:\Users\Graham\Documents\GitHub\AutomateXMLEditor\Project2\EditorFunctions\obj\Debug\EditorFunctions.pdb

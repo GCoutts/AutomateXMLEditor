@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86E344BB-A0DD-4DED-B184-30BA127FEAF9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XMLEditor</RootNamespace>
+    <AssemblyName>XMLEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nmock, Version=1.0.2262.27332, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UnitTests\nmock.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UnitTests\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnitForms, Version=2.0.2327.4786, Culture=neutral, PublicKeyToken=eba0990a10412e0e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UnitTests\NUnitForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.-->
+  <Target Name="BeforeBuild" DependsOnTargets="Document" BeforeTargets="Build">
+  </Target>
+  <Target Name="AfterBuild" DependsOnTargets="CopyZipRem" AfterTargets="Build">
+    <Message Text="SUCCESS!!!" Importance="high" />
+  </Target>
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />
+  <!--
+<Target Name="Test" DependsOnTargets="Build">
+    <NUnit Assemblies="@(TestAssembly)"
+           WorkingDirectory="MyApplication.UnitTests\bin\$(Configuration)"
+           ToolPath="C:\\Program Files\\NUnit 2.4.7\\bin"
+           />
+</Target>
+-->
+  <ItemGroup>
+    <ProjectReference Include="..\EditorFunctions\EditorFunctions.csproj">
+      <Project>{FBA470B6-B0A4-4B7A-BD83-9E2267C2073C}</Project>
+      <Name>EditorFunctions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- Application Configurations -->
+  <PropertyGroup>
+    <SolutionFileName>XMLEditor.sln</SolutionFileName>
+    <NUnit-ToolPath>C:\Program Files (x86)\NUnit 2.6.2\bin</NUnit-ToolPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <!--<_AllProjects Include="**\*.csproj" />-->
+    
+    <_FolderToMake Include="C:\temp\Documentation\" />
+    <_FolderTemp Include="C:\temp\" />
+    <!--<_ZipItems Include="C:\temp\**\*.*" />-->
+  </ItemGroup>
+  <Target Name="Test">
+    <!--DependsOnTargets="Clean;Compile">-->
+    <Exec Command=" %SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ../EditorFunctions/EditorFunctions.csproj" ContinueOnError="true" />
+    <Exec Command=" %SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe ../UnitTests/UnitTests.csproj" ContinueOnError="true" />
+    <NUnit ToolPath="$(NUnit-ToolPath)" DisableShadowCopy="true" ContinueOnError="true" Assemblies="..\UnitTests\bin\Debug\UnitTests.dll" OutputXmlFile="test-results.xml">
+      <Output TaskParameter="ExitCode" PropertyName="UnitTest" />
+    </NUnit>
+  </Target>
+  <UsingTask AssemblyFile="MSBuild.Community.Tasks.dll" TaskName="MSBuild.Community.Tasks.Zip" />
+  <Target Name="TestResults">
+    <Error Text="One of the Unit tests has failed" Condition="'$(UnitTest)'=='1'">
+    </Error>
+  </Target>
+  <Target Name="Document" DependsOnTargets="Test;TestResults;">
+    <!--DependsOnTargets="Test;NUnitFailed">-->
+    <MakeDir Condition="!Exists('@(_FolderToMake)')" Directories="@(_FolderToMake)" />
+
+    <ItemGroup>
+      <_CopySandCasle Include="..\*.shfbproj" />
+    </ItemGroup>
+    <Copy SourceFiles="@(_CopySandCasle)" DestinationFolder="C:\temp\" />
+    <Exec Command=" %SystemRoot%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe C:/temp/GenterateDocumentation.shfbproj" >
+      <Output TaskParameter="ExitCode" PropertyName="DocGen" />
+    </Exec>
+  </Target>
+  
+  <Target Name="DocCopyResults">
+    <Error Text="The Document Generation has Failed!" Condition="'$(DocGen)'=='1'">
+    </Error>
+  </Target>
+  <Target Name="CopyZipRem" >
+    <ItemGroup>
+      <_CopyItems Include=".\bin\**\*.*" />
+    </ItemGroup>
+    
+    <Copy SourceFiles="@(_CopyItems)" DestinationFolder="C:\temp\" >
+      
+    </Copy>
+    <ItemGroup>
+      <_ZipItems Include="C:\temp\**\*.*" Exclude=".\*.shfbproj" />
+    </ItemGroup>
+    <Zip Files="@(_ZipItems)" WorkingDirectory="@(_FolderTemp)" ZipFileName="../This Is My Application.zip" ZipLevel="9" ContinueOnError="true" />
+      
+    <RemoveDir Directories="@(_FolderTemp)" ContinueOnError="true" />
+    
+
+  </Target>
+  
+  
+</Project>
